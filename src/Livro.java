@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Livro extends Midia implements Comparable<Livro>{
+public class Livro extends Midia /*implements Comparable<Livro>*/{
 	private LinkedList<Pessoa> autores = new LinkedList<>();
 	private int numeroPagina;
 	
@@ -30,10 +30,9 @@ public class Livro extends Midia implements Comparable<Livro>{
 				
 	}
 
-	@Override
-	public int compareTo(Livro o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int compareTo(Livro l) {
+//		return 1;
+//	}
 
 }

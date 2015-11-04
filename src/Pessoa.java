@@ -1,9 +1,8 @@
 
 
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa>{
 	private String nome;
 	private int codigo;
-	private Emprestimo emprestimo;
 	
 	public Pessoa(String nome, int codigo) {
 		this.codigo = codigo;
@@ -18,12 +17,14 @@ public class Pessoa {
 		return codigo;
 	}
 
-	public Emprestimo getEmprestimo() {
-		return emprestimo;
+	@Override
+	public String toString() {
+		return codigo + " " + nome;
 	}
 
-	public void setEmprestimo(Emprestimo emprestimo) {
-		this.emprestimo = emprestimo;
+	@Override
+	public int compareTo(Pessoa o) {
+		return 1;
 	}
 	
 }

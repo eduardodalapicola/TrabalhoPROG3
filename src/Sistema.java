@@ -1,10 +1,12 @@
 
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
 public class Sistema {
 	private TreeSet<Genero> cadastroGenero = new TreeSet<>();
 	private TreeSet<Pessoa> cadastroPessoa = new TreeSet<>();
-	private TreeSet<Livro> inventarioMidia = new TreeSet<Livro>();
+	private LinkedHashSet<Midia> inventarioMidia = new LinkedHashSet<>();
+	private TreeSet<Emprestimo> controleEmprestimo = new TreeSet<>();
 	
 	public TreeSet<Genero> getCadastroGenero() {
 		return cadastroGenero;
@@ -18,11 +20,18 @@ public class Sistema {
 	public void setCadastroPessoa(Pessoa pessoa) {
 		this.cadastroPessoa.add(pessoa);
 	}
-	public TreeSet<Livro> getInventarioMidia() {
+	public LinkedHashSet<Midia> getInventarioMidia() {
 		return inventarioMidia;
 	}
-	public void adicionarLivro(Livro midia) {
+	public void adicionarMidia(Midia midia) {
 		this.inventarioMidia.add(midia);
+	}
+	
+	public TreeSet<Emprestimo> getControleEmprestimo() {
+		return controleEmprestimo;
+	}
+	public void adicionaEmprestimo(Emprestimo controleEmprestimo) {
+		this.controleEmprestimo.add(controleEmprestimo);
 	}
 	public Genero procuraGenero(String sigla){
 		for (Genero genero : cadastroGenero) {

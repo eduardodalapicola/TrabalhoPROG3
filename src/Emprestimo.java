@@ -1,10 +1,11 @@
+import java.util.Date;
 
-
-public class Emprestimo {
+public class Emprestimo implements Comparable<Emprestimo>{
 	private int codigoMidia;
-	private String emprestimo;
-	private String devolucao;
-	public Emprestimo(int codigoMidia, int codigoUsuario, String emprestimo, String devolucao) {
+	private Date emprestimo;
+	private Date devolucao;
+	
+	public Emprestimo(int codigoMidia, Date emprestimo, Date devolucao) {	
 		this.codigoMidia = codigoMidia;
 		this.emprestimo = emprestimo;
 		this.devolucao = devolucao;
@@ -12,12 +13,21 @@ public class Emprestimo {
 	public int getCodigoMidia() {
 		return codigoMidia;
 	}
-	public String getEmprestimo() {
+	public Date getEmprestimo() {
 		return emprestimo;
 	}
-	public String getDevolucao() {
+	public Date getDevolucao() {
 		return devolucao;
 	}
 	
+	@Override
+	public int compareTo(Emprestimo o) {
+		return 1;
+	}
+	
+	@Override
+	public String toString() {
+		return codigoMidia + " " + emprestimo + " " + devolucao;
+	}
 	
 }

@@ -49,5 +49,14 @@ public class Sistema {
 		}
 		return null;
 	}
+	
+	public Midia procuraMidia(int codigo){
+		for (Midia midia : inventarioMidia) {
+			if(midia.getCodigo() == codigo){
+				return midia;
+			}
+		}
+		return null;
+	}
 
 }

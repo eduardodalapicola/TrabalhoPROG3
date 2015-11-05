@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.function.Consumer;
 
 public class Livro extends Midia /*implements Comparable<Livro>*/{
 	private LinkedList<Pessoa> autores = new LinkedList<>();
@@ -26,9 +27,14 @@ public class Livro extends Midia /*implements Comparable<Livro>*/{
 	
 	@Override
 	public String toString() {
-		return super.toString()+" "+numeroPagina;
-				
+		StringBuffer buffer = new StringBuffer();  
+		for (Pessoa pessoa : autores) {
+			buffer.append(pessoa.getCodigo()+",");
+		}
+		String temp = buffer.toString();
+		return super.toString()+";"+temp+";"+numeroPagina+";";
 	}
+
 
 //	@Override
 //	public int compareTo(Livro l) {

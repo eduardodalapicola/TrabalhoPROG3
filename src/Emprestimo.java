@@ -1,17 +1,20 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Emprestimo implements Comparable<Emprestimo>{
-	private int codigoMidia;
+	private Midia midia;
+	private String nome;
 	private Date emprestimo;
 	private Date devolucao;
 	
-	public Emprestimo(int codigoMidia, Date emprestimo, Date devolucao) {	
-		this.codigoMidia = codigoMidia;
+	public Emprestimo(Midia midia, String nome, Date emprestimo, Date devolucao) {
+		this.midia = midia;
+		this.nome = nome;
 		this.emprestimo = emprestimo;
 		this.devolucao = devolucao;
 	}
-	public int getCodigoMidia() {
-		return codigoMidia;
+	public Midia getMidia() {
+		return midia;
 	}
 	public Date getEmprestimo() {
 		return emprestimo;
@@ -19,15 +22,22 @@ public class Emprestimo implements Comparable<Emprestimo>{
 	public Date getDevolucao() {
 		return devolucao;
 	}
-	
+
+	public String getNome() {
+		return nome;
+	}
 	@Override
 	public int compareTo(Emprestimo o) {
-		return 1;
+		return o.getEmprestimo().compareTo(emprestimo);
 	}
 	
 	@Override
 	public String toString() {
-		return codigoMidia + " " + emprestimo + " " + devolucao;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		if(midia != null)
+			return midia.getCodigo()+ ";"+nome+ ";" + dateFormat.format(emprestimo) + ";" + dateFormat.format(devolucao);
+		else 
+			return "Inconsistências na entrada";
 	}
 	
 }

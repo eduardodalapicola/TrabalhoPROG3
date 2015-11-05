@@ -1,4 +1,6 @@
-
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class Midia {
 	private int codigo;
@@ -48,12 +50,15 @@ public class Midia {
 	
 	@Override
 	public String toString() {
+		 Locale BRAZIL = new Locale("pt","BR");
+		 DecimalFormatSymbols REAL = new DecimalFormatSymbols(BRAZIL);
+		 DecimalFormat formatoBr = new DecimalFormat("¤ ###,###,##0.00",REAL);
+		 
 		if(genero!=null)
-			return codigo +" "+nome+" "+genero.getNome()+" "+genero.getSigla()+
-				" "+preco+" "+possui+" "+consumiu+" "+deseja;
+			return codigo +";"+nome+";"+genero.getSigla()+
+				";"+possui+";"+consumiu+";"+deseja+ ";"+ formatoBr.format(preco);
 		else
-			return codigo +" "+nome+
-					" "+preco+" "+possui+" "+consumiu+" "+deseja;
+			return "Inconsistências na entrada";
 	}
 
 	

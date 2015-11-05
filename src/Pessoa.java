@@ -1,5 +1,4 @@
 
-
 public class Pessoa implements Comparable<Pessoa>{
 	private String nome;
 	private int codigo;

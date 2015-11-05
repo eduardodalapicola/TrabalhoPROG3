@@ -26,7 +26,7 @@ public class Serie extends Midia /*implements Comparable<Serie>*/{
 	}
 	@Override
 	public String toString() {
-		return super.toString() + numeroTemporada + duracao;
+		return super.toString()+ ";" +nomeSerie+";"+ numeroTemporada +";"+ duracao;
 	}
 	public void adicionaActors(Pessoa p){
 		actors.add(p);
